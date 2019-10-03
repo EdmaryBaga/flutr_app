@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expenses_app/transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,9 +20,15 @@ class MyHomePage extends StatelessWidget {
 
   final List<Transaction> transaction = [
     Transaction(id: 't1', title: 'New Shoes', amount: 69.9, date: DateTime.now()),
-    Transaction(id: 't2', title: 'New BagPack', amount: 109.9, date: DateTime.now()),
-    Transaction(id: 't3', title: 'New Computer', amount: 69.9, date: DateTime.now()),
+    Transaction(id: 't2', title: 'New BagPack', amount: 89.9, date: DateTime.now()),
+    Transaction(id: 't3', title: 'New Computer', amount: 59.9, date: DateTime.now()),
   ];
+
+  //String titleInput;
+  //String amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +52,41 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
+
+            Card(
+              elevation: 5,
+              child:Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration:
+                      InputDecoration(labelText: 'Title'),
+                      //onChanged: (val){titleInput=val;},
+                      controller: titleController,
+                    ),
+                    TextField(
+                      decoration:
+                      InputDecoration(labelText: 'Amount'),
+                      //onChanged: (val) => amountInput = val,
+                      controller: amountController,
+                    ),
+
+                    FlatButton(
+                      onPressed: () {
+                        print(titleController.text);
+                        print(amountController.text);
+                      },
+                      child: Text('Add Transaction'),
+                      textColor: Colors.purple,
+                    )
+                  ],
+                ),
+              )
+
+            ),
+
             //Hacemos dinamica la lista, agregando una lisa del contenido del mapa de transacciones
             Column(
               children: transaction.map((tx){
@@ -52,16 +94,28 @@ class MyHomePage extends StatelessWidget {
                   child: Row(children: <Widget>[
                     Container(
                       margin:EdgeInsets.symmetric(
-                        vertical: 10,
+                        vertical : 10,
                         horizontal: 15,
                       ),
                       decoration: BoxDecoration(
-
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ),
-                      child: Text(tx.amount.toString()),),
+                      padding: EdgeInsets.all(10),//Se añade un pading ,
+                      child: Text(' \$'+tx.amount.toString(), style: TextStyle(
+                        fontWeight:FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.indigoAccent,
+                      ),),
+                    ),
                     Column(children: <Widget>[
                       Text(tx.title),
-                      Text(tx.date.toString()),
+                      Text(DateFormat('yyyy-MM-dd').format( tx.date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),),
                     ],)
                   ],)
                 );
