@@ -12,7 +12,8 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: SingleChildScrollView(
+      child: SingleChildScrollView(//colocsmos un scroll al Column
+        //usamos los listView para listas muy grandes, y de las cuales no sabes cuantos items tendra
         child: Column(
           children: transactions.map((tx) {
             return Card(

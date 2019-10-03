@@ -5,6 +5,7 @@ class NewTransaction extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
+  //se realiza un callback para pasar los datos que se reciven por los TextField
   NewTransaction(this.addTx);//callback, resive el funcionamiento que tendra el boton
 
   @override
@@ -18,7 +19,7 @@ class NewTransaction extends StatelessWidget {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
-              controller: titleController,
+              controller: titleController,//Se utiliza para recuperar los datos del TextField en la variable titleController
               // onChanged: (val) {
               //   titleInput = val;
               // },

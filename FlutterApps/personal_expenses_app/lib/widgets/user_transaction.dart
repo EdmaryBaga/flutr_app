@@ -10,6 +10,8 @@ class UserTransactions extends StatefulWidget {
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
+
+  //lista de transacciones principales
   final List<Transaction> _userTransactions = [
     Transaction(
       id: 't1',
@@ -25,7 +27,10 @@ class _UserTransactionsState extends State<UserTransactions> {
     ),
   ];
 
+  //metodo para añadir una nueva transaccion
   void _addNewTransaction(String txTitle, double txAmount) {
+
+    //se crea el nuevo objeto de transaccion
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
@@ -33,6 +38,7 @@ class _UserTransactionsState extends State<UserTransactions> {
       id: DateTime.now().toString(),
     );
 
+    //se llama al setState para indicar que hay nurvos datos y asi pintarlos en la vista
     setState(() {
       _userTransactions.add(newTx);
     });
