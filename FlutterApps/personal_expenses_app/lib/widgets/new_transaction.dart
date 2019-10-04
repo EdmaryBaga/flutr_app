@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-
 class NewTransaction extends StatefulWidget {
   final Function addTx;
   NewTransaction(this.addTx);
@@ -11,8 +8,6 @@ class NewTransaction extends StatefulWidget {
     return state(addTx);
   }
 }
-
-
 
 class state extends State<NewTransaction>{
   final Function addTx;
