@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import './new_transaction.dart';
 import './transaction_list.dart';
 import '../models/transaction.dart';
+import 'package:personal_expenses_app/widgets/new_transaction.dart';
+import 'package:personal_expenses_app/models/transaction.dart';
 
 class UserTransactions extends StatefulWidget {
   @override
@@ -44,12 +46,20 @@ class _UserTransactionsState extends State<UserTransactions> {
     });
   }
 
+  void startNewTransaction(BuildContext ctx){
+    showModalBottomSheet(context: ctx, builder: (_)//el guion bajo idica que aun no sabes que parametros
+    {
+      return NewTransaction(_addNewTransaction);
+    },);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         NewTransaction(_addNewTransaction),
         TransactionList(_userTransactions),
+
       ],
     );
   }

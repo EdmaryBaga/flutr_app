@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses_app/widgets/new_transaction.dart';
 import 'package:personal_expenses_app/widgets/user_transaction.dart';
+import 'package:personal_expenses_app/models/transaction.dart';
 
 
 
@@ -20,6 +22,8 @@ class MyHomePage extends StatelessWidget {
   // String amountInput;
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
