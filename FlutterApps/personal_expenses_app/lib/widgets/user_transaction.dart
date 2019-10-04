@@ -6,6 +6,8 @@ import '../models/transaction.dart';
 import 'package:personal_expenses_app/widgets/new_transaction.dart';
 import 'package:personal_expenses_app/models/transaction.dart';
 
+
+//usamos un stateful porque se actualizara la vita cuando se agregue un nuevo elemento
 class UserTransactions extends StatefulWidget {
   @override
   _UserTransactionsState createState() => _UserTransactionsState();

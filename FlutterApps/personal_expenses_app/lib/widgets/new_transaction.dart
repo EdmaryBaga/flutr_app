@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+
+
+
+class NewTransaction extends StatefulWidget {
+  final Function addTx;
+  NewTransaction(this.addTx);
+  @override
+  State<StatefulWidget> createState() {
+    return state(addTx);
+  }
+}
+
+
+
+class state extends State<NewTransaction>{
   final Function addTx;
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  //se realiza un callback para pasar los datos que se reciven por los TextField
-  NewTransaction(this.addTx);//callback, resive el funcionamiento que tendra el boton
+  state(this.addTx);
 
-  void submitData(){
+  void submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
-    if(enteredTitle.isEmpty || enteredAmount <= 0){
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
     }
 
@@ -33,7 +46,7 @@ class NewTransaction extends StatelessWidget {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
-              controller: titleController,//Se utiliza para recuperar los datos del TextField en la variable titleController
+              controller: titleController,
               onSubmitted: (_) => submitData(),
               // onChanged: (val) {
               //   titleInput = val;
@@ -43,7 +56,7 @@ class NewTransaction extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) =>submitData(),
+              onSubmitted: (_) => submitData(),
               // onChanged: (val) => amountInput = val,
             ),
             FlatButton(
