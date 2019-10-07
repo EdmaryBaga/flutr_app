@@ -21,14 +21,20 @@ class myApp extends StatelessWidget{
             crossAxisAlignment: CrossAxisAlignment.stretch,//acemos que utilice all ancho de la panralla del dispositivo
             children: <Widget>[
               Card(
-                child: Column(
-                  children: <Widget>[
-                    Text("item"),
-                    FlatButton(
-                      child: Icon( Icons.ac_unit),
-                    )
-                  ],
-                ),
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text("item",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                      ),
+                      Icon( Icons.favorite, color: Colors.red,),
+                    ],
+                  ),
+                )
               )
             ],
           ),
