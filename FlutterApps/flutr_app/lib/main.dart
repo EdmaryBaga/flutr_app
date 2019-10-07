@@ -13,7 +13,15 @@ void main(){
             fontSize: 46.0,//el font size acepta doubles
           ),
           ),
+
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.purple,
       ),
     ),
   );
