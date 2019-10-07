@@ -11,6 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        accentColor: Colors.amber,//este es un color para los elemntos de como botones,
+      ),
       home: MyHomePage(),
     );
   }

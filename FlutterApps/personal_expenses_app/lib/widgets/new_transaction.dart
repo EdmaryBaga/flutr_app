@@ -28,6 +28,7 @@ class state extends State<NewTransaction>{
       enteredTitle,
       enteredAmount,
     );
+    Navigator.of(context).pop();//al terminar cerramos la ventanita
   }
 
   @override
