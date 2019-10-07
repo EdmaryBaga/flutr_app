@@ -16,6 +16,7 @@ class myApp extends StatelessWidget{
             children: <Widget>[
               CardItem(titulo: "item1",icon:Icon( Icons.favorite, color: Colors.red,)),
               CardItem(titulo: "item2",icon:Icon( Icons.ac_unit, color: Colors.blue,))
+              //Se pueden enviar widgets como parametros de un objeto
 
             ],
           ),
