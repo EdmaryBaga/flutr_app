@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
+//Metodo para mostrar el widget
 class MyButton extends StatefulWidget{
   @override
   _MyButtonState createState() => _MyButtonState();
 
 }
 
+
+//Metodo para actualizar el widget
 class _MyButtonState extends State<MyButton>{
 
   List<String> words = ['item1', 'item2', 'item3'];
