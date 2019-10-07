@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {
+
+  static const String routName= "/configuracion";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
