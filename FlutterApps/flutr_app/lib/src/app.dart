@@ -22,7 +22,7 @@ class _AppState extends State<App>{
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Second()
+                builder: (context) => Second("Dato")
               )
             );
           },
