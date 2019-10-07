@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
 
-void main(){
-  var app = MaterialApp(
-    home: Scaffold(
+//El stateles es un widget sin estado de datos, es decir no matiene los datos
+void main(){runApp(
+  MaterialApp(
+    home: myApp(),
+  )
+);
+}
+class myApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    //all widget tiene un Context para ser identificado en el tree de flutter
+    return Scaffold(
       appBar: AppBar(
-        title: Text("flutApp"),
+        title: Text("Statelesswidget"),
       ),
       body: Container(
         child: Center(
-          child: Text("texfjs",
-          style: TextStyle(
-            fontSize: 46.0,//el font size acepta doubles
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,//acemos que utilice all ancho de la panralla del dispositivo
+            children: <Widget>[
+              Card(
+                child: Column(
+                  children: <Widget>[
+                    Text("item"),
+                    FlatButton(
+                      child: Icon( Icons.ac_unit),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-          ),
-
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
+    );
+  }
 
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.purple,
-      ),
-    ),
-  );
-
-  runApp(app);
 }
 
 
