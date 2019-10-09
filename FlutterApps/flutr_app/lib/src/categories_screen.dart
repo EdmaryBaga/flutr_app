@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'dart:convert'; //Esta libreria nos sirve para convertir los objetos a JSON
+
 import './data/dummy_data.dart';
 import './Widget/category_item.dart';
+import 'package:http/http.dart' as http;
+
+import 'models/product.dart'; //importamos la libreria http que agregamos al proyecto y le damos un alias
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -9,8 +14,10 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("DelMeal"),
@@ -30,3 +37,4 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 }
+
