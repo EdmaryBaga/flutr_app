@@ -14,6 +14,7 @@ class CategoryItem extends StatelessWidget {
 
   Future addProduct(Product product) async {
     //para realizar el match colocar la extencion .json
+    //products es la coleccion a la que se agregaran los datos
     const url = 'https://flutrapp.firebaseio.com/products.json';//indicamos la direccion a la que nos conectaremos
     var response = await http.post(url, body: json.encode({
       'title': product.title,
@@ -21,23 +22,20 @@ class CategoryItem extends StatelessWidget {
       'imageUrl': product.imageUrl,
       'price':product.price,
       'isFavorite': product.isFavorite,
-    }));//llamamos a un post
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-    print('Response status: ${response.statusCode}');
+    })
+    ).then((response){
+
+      //aqui va la logica de lo que se debe realizar despues de obtener el resultado del post
+      print("****do***");
+      print('Response status: ${response.statusCode}');
+      print('Response body: ${response.body}');
+    });//llamamos a un post
 
 
-    final newProduct = Product(
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      imageUrl: product.imageUrl,
-      id: DateTime.now().toString(),
-    );
   }
 
   void selectedCategory(BuildContext ctx){
-    addProduct(Product(title: 'producto1', description: 'Es color...', imageUrl: 'imagen/cualquiera', price: 22.3, isFavorite: true));
+    addProduct(Product(title: 'producto2', description: 'Es color gris', imageUrl: 'https://i.ytimg.com/vi/n_KrxgXrU4w/maxresdefault.jpg', price: 32.3, isFavorite: true));
     Navigator.of(ctx).push(MaterialPageRoute(
       builder: (_) {
         return CategoryMealsScreen();
